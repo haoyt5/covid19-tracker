@@ -1,7 +1,7 @@
 import * as constant from "../constant";
 const initialState = {
   isLoad: false,
-  caseData: {}
+  caseData: []
 };
 
 export default function reducer(state = initialState, action) {

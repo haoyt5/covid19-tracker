@@ -10,6 +10,8 @@ export class Dashboard extends Component {
     this.props.getCaseListData();
   }
   render() {
+    console.log(this.props)
+    const { isLoad, caseData } = this.props;
     return (
       <div className="p-5">
         <Row>
@@ -37,7 +39,7 @@ export class Dashboard extends Component {
                   <Col lg="7">
                     <Card>
                       <CardBody>
-                        <CaseTable />
+                        <CaseTable isLoad={isLoad} data={caseData}/>
                       </CardBody>
                     </Card>
                   </Col>
@@ -52,9 +54,12 @@ export class Dashboard extends Component {
 }
 
 
-const mapStateToProps = (state) => ({
-
-})
+const mapStateToProps = (state) => {
+  return {
+    isLoad:state.casedata.isLoad,
+    caseData: state.casedata.caseData
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {

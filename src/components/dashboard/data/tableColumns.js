@@ -6,7 +6,7 @@ const tableColumns = [
   },
   {
     dataField: 'data_as_of',
-    text: 'Confirm Date'
+    text: 'Confirmed Date'
   },
   {
     dataField: 'county_city',
@@ -23,6 +23,10 @@ const tableColumns = [
   {
     dataField: 'imported',
     text: 'Imported Or Not'
+  },
+  {
+    dataField: 'confirmed_case_count',
+    text: 'Count'
   },
 
 ]
