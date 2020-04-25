@@ -33,10 +33,9 @@ export class Dashboard extends Component {
                   </Col>
                 </Row>
                 <Row >
-                  <Col lg="5">
-
+                  <Col lg="4">
                   </Col>
-                  <Col lg="7">
+                  <Col lg="8">
                     <Card>
                       <CardBody>
                         <CaseTable isLoad={isLoad} data={caseData}/>
