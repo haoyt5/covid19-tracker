@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { Row, Col, Card, CardBody, Container } from "reactstrap";
 import StatusJumbotron from "../../components/dashboard/StatusJumbotron";
 import Filters from "../../components/dashboard/Filters";
 import CaseTable from "../../components/dashboard/CaseTable";
-
+import { getCaseListData } from '../../redux/actions/caseDataActions';
 export class Dashboard extends Component {
   componentDidMount() {
-
+    this.props.getCaseListData();
   }
   render() {
     return (
@@ -50,4 +51,15 @@ export class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+
+const mapStateToProps = (state) => ({
+
+})
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCaseListData: () => dispatch(getCaseListData())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
