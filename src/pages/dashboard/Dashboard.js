@@ -5,12 +5,12 @@ import StatusJumbotron from "../../components/dashboard/StatusJumbotron";
 import Filters from "../../components/dashboard/Filters";
 import CaseTable from "../../components/dashboard/CaseTable";
 import { getCaseListData } from '../../redux/actions/caseDataActions';
+import filterColumns from "../../components/dashboard/data/filterColumns";
 export class Dashboard extends Component {
   componentDidMount() {
     this.props.getCaseListData();
   }
   render() {
-    console.log(this.props)
     const { isLoad, caseData } = this.props;
     return (
       <div className="p-5">
@@ -27,7 +27,7 @@ export class Dashboard extends Component {
                   <Col>
                     <Card>
                       <CardBody>
-                        <Filters />
+                        <Filters isLoad={isLoad} data={caseData} columns={filterColumns}/>
                       </CardBody>
                     </Card>
                   </Col>

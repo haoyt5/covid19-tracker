@@ -34,3 +34,28 @@
 .search-button:hover{
   background-color: #6d6d6d ;
 }
+
+/* Filter */
+.dropdown-heading {
+  border-color: #ced4da !important;
+  
+}
+
+.dropdown-heading:active {
+  border-color: #16bfe1 !important;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(71, 186, 193, 0.25);
+}
+
+.dropdown-heading-dropdown-arrow>span {
+  border-top-color: rgb(134, 119, 119) !important;
+}
+
+.dropdown-heading-dropdown-arrow>span :active{
+  border-top-color: #16bfe1 !important;
+}
+
+.select-panel > div > input:focus,input:active{
+  border:1px solid #16bfe1 !important;
+  box-shadow: 0 0 0 0.2rem rgba(71, 186, 193, 0.25);
+}
