@@ -1,0 +1,2 @@
+
+export const CASE_LIST_SUCCESS = "CASE_LIST_SUCCESS";

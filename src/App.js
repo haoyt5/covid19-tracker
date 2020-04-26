@@ -1,11 +1,13 @@
 import React from 'react';
+import Dashboard from "./pages/dashboard/Dashboard";
+import { Provider } from "react-redux";
+import store from './store';
 
 function App() {
   return (
-    <div style={{ backgroundColor: "black", height: "100vh", color: "white" }}
-      className="d-flex text-center justify-content-center">
-      <h1 >Coming Soon</h1>
-    </div>
+    <Provider store={store}>
+      <Dashboard />
+    </Provider>
   );
 }
 
