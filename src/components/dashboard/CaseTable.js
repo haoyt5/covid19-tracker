@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col } from "reactstrap";
 import BootstrapTable from 'react-bootstrap-table-next';
 
@@ -10,7 +10,7 @@ import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 import "../../components/dashboard/Dashboard.css";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 const customTotalFormatter = (from, to, size) => {
   return (
@@ -21,7 +21,17 @@ const customTotalFormatter = (from, to, size) => {
 };
 
 const CustomSearchBar = (props) => {
+  const [inputValue, setInputValue] = useState("");
+
   let input;
+  const handleCleearClick = () => {
+    props.onSearch('');
+    input.value = ""
+    setInputValue("")
+  }
+  const handleOnChange = (inputValue) => {
+    setInputValue(inputValue)
+  }
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       props.onSearch(input.value);
@@ -31,18 +41,25 @@ const CustomSearchBar = (props) => {
     props.onSearch(input.value);
   };
   return (
-    <div className="d-flex">
-      <input
-        className="form-control custom-search-bar mr-2"
-        ref={n => input = n}
-        type="text"
-        onKeyPress={event => handleKeyPress(event)}
-        placeholder="search"
-      />
-      <div className="search-button pl-4 pr-4"
-        onClick={handleClick}> <span><FontAwesomeIcon icon={faSearch} /></span>
+    <>
+      <div className="d-flex">
+        <input
+          className="form-control custom-search-bar mr-2"
+          ref={n => input = n}
+          type="text"
+          onKeyPress={event => handleKeyPress(event)}
+          placeholder="search"
+          onChange={() => handleOnChange(input.value)}
+        />
+        <div className="search-button pl-4 pr-4"
+          onClick={handleClick}> <span><FontAwesomeIcon icon={faSearch} /></span>
+        </div>
       </div>
-    </div>
+      <div className="pt-3 d-flex justify-content-flex-end">
+        {inputValue ? <button className="badge badge-pill badge-dark clear-badge-button" onClick={() => handleCleearClick()} >"{inputValue}" <FontAwesomeIcon icon={faTimesCircle} /></button> : null}
+
+      </div>
+    </>
   );
 };
 

@@ -35,7 +35,9 @@
 .search-button:hover{
   background-color: #6d6d6d ;
 }
-
+.clear-badge-button:hover{
+  background-color: #007bff;
+}
 /* Filter */
 /* .dropdown-heading {
   border-color: #ced4da !important;

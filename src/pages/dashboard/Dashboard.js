@@ -5,8 +5,8 @@ import StatusJumbotron from "../../components/dashboard/StatusJumbotron";
 
 import CaseTable from "../../components/dashboard/CaseTable";
 import { getCaseListData } from '../../redux/actions/caseDataActions';
-import Filters from "../../components/dashboard/Filters";
-import filterColumns from "../../components/dashboard/data/filterColumns";
+// import Filters from "../../components/dashboard/Filters";
+// import filterColumns from "../../components/dashboard/data/filterColumns";
 
 export class Dashboard extends Component {
   componentDidMount() {
@@ -25,7 +25,7 @@ export class Dashboard extends Component {
           <Container fluid={true}>
             <Card className="shadow-sm border-0 rounded-lg">
               <CardBody>
-                <Row className="pb-4">
+                {/* <Row className="pb-4">
                   <Col>
                     <Card>
                       <CardBody>
@@ -33,12 +33,12 @@ export class Dashboard extends Component {
                       </CardBody>
                     </Card>
                   </Col>
-                </Row>
+                </Row> */}
                 <Row >
                   {/* <Col lg="5">
                   </Col> */}
-                  <Col lg="12">
-                    <Card >
+                  <Col lg="12" >
+                    <Card className="border-0">
                       <CardBody >
                         <CaseTable isLoad={isLoad} data={caseData}/>
                       </CardBody>
