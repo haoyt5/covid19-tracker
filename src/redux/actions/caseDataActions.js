@@ -1,5 +1,5 @@
 import * as constant from "../constant";
-import data from "../../components/dashboard/data/temp.json";
+// import data from "../../components/dashboard/data/temp.json";
 // import _ from "lodash";
 
 const attatchID = (object) => {
@@ -57,23 +57,23 @@ const convertToEnglish = (string) =>{
 export const getCaseListData = () => {
   return (dispatch) => {
 
-    const apiResult = JSON.parse(convertToEnglish(JSON.stringify(data)));
-    dispatch({
-          type: constant.CASE_LIST_SUCCESS,
-          payload: attatchID(apiResult)
-        });
-   
-    // fetch("https://cors-anywhere.herokuapp.com/https://od.cdc.gov.tw/eic/Day_Confirmation_Age_County_Gender_19CoV.json")
-    //   .then(r => r.text())
-    //   .then(data => {
-    //     const apiResult = JSON.parse(convertToEnglish(data));
-    //     console.log("apiResult",apiResult);
-    //     dispatch({
+    // const apiResult = JSON.parse(convertToEnglish(JSON.stringify(data)));
+    // dispatch({
     //       type: constant.CASE_LIST_SUCCESS,
     //       payload: attatchID(apiResult)
     //     });
-    //   })
-    //   .catch()
+   
+    fetch("https://cors-anywhere.herokuapp.com/https://od.cdc.gov.tw/eic/Day_Confirmation_Age_County_Gender_19CoV.json")
+      .then(r => r.text())
+      .then(data => {
+        const apiResult = JSON.parse(convertToEnglish(data));
+        console.log("apiResult",apiResult);
+        dispatch({
+          type: constant.CASE_LIST_SUCCESS,
+          payload: attatchID(apiResult)
+        });
+      })
+      .catch()
 
   }
 }
