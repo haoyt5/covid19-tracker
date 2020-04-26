@@ -6,3 +6,63 @@
 .react-bootstrap-table >.table >thead > tr >th{
   border-top: 0px;
 }
+
+.custom-search-bar{
+  height: 38px !important;
+  font-size: 12px !important;
+  border:0px !important;
+  background-color: #e9ecef !important;
+  color:black !important;
+  border-radius: 4px !important;
+}
+.custom-search-bar:focus{
+  font-size: 12px !important;
+  border:0px !important;
+  background-color: white !important;
+  color:black !important;
+}
+.search-button{
+  cursor: pointer;
+  height: 38px ;
+  line-height: 38px;
+  font-size: 12px;
+  border-radius:4px ;
+  background-color: #7a7a7a ;
+  color: white ;
+  display: flex;
+  justify-content: center;
+}
+.search-button:hover{
+  background-color: #6d6d6d ;
+}
+.clear-badge-button:hover{
+  background-color: #007bff;
+}
+/* Filter */
+/* .dropdown-heading {
+  border-color: #ced4da !important;
+
+}
+
+.dropdown-heading:active {
+  border-color: #16bfe1 !important;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(71, 186, 193, 0.25);
+}
+
+.dropdown-heading-dropdown-arrow>span {
+  border-top-color: rgb(134, 119, 119) !important;
+}
+
+.dropdown-heading-dropdown-arrow>span :active{
+  border-top-color: #16bfe1 !important;
+}
+
+.select-panel > div > input:focus,input:active{
+  border:1px solid #16bfe1 !important;
+  box-shadow: 0 0 0 0.2rem rgba(71, 186, 193, 0.25);
+} */
+
+.dropdown-multiselect{
+  font-size: 12px;
+}

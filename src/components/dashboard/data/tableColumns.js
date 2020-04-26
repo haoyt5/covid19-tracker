@@ -10,7 +10,7 @@ const headerFormat = (column, colIndex, { sortElement, filterElement }) => {
     <>
       <div title={column.text}
         className="text-truncate d-block"
-        style={{ cursor: "pointer", fontSize: "10px", minWidth: "5ch" }}
+        style={{ cursor: "pointer", fontSize: "12px", minWidth: "5ch" }}
       >{column.text}{sortElement}</div>
       {/* <label style={{ "visibility": "hidden", width: 0, display: "none" }}>{filterElement}</label> */}
     </>

@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Row, Col, Card, CardBody, Container } from "reactstrap";
 import StatusJumbotron from "../../components/dashboard/StatusJumbotron";
-import Filters from "../../components/dashboard/Filters";
+
 import CaseTable from "../../components/dashboard/CaseTable";
 import { getCaseListData } from '../../redux/actions/caseDataActions';
+// import Filters from "../../components/dashboard/Filters";
+// import filterColumns from "../../components/dashboard/data/filterColumns";
+
 export class Dashboard extends Component {
   componentDidMount() {
     this.props.getCaseListData();
   }
   render() {
-    console.log(this.props)
     const { isLoad, caseData } = this.props;
     return (
       <div className="p-5">
@@ -23,20 +25,20 @@ export class Dashboard extends Component {
           <Container fluid={true}>
             <Card className="shadow-sm border-0 rounded-lg">
               <CardBody>
-                <Row className="pb-4">
+                {/* <Row className="pb-4">
                   <Col>
                     <Card>
                       <CardBody>
-                        <Filters />
+                        <Filters isLoad={isLoad} data={caseData} columns={filterColumns}/>
                       </CardBody>
                     </Card>
                   </Col>
-                </Row>
+                </Row> */}
                 <Row >
-                  <Col lg="5">
-                  </Col>
-                  <Col lg="7">
-                    <Card >
+                  {/* <Col lg="5">
+                  </Col> */}
+                  <Col lg="12" >
+                    <Card className="border-0">
                       <CardBody >
                         <CaseTable isLoad={isLoad} data={caseData}/>
                       </CardBody>
