@@ -1,7 +1,10 @@
 import React from "react";
 // import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+const headerStyleObject = (styleObject) => {
+  return styleObject
+}
 
-const headerStyle = (column, colIndex, { sortElement, filterElement }) =>{
+const headerFormat = (column, colIndex, { sortElement, filterElement }) =>{
   return (
     <>
         <span style={{ cursor: "pointer", fontSize: "10px" }}>{column.text}{sortElement}</span>
@@ -19,38 +22,44 @@ const tableColumns = [
     dataField: 'data_as_of',
     text: 'Confirmed Date',
     sort: true,
-    headerFormatter: headerStyle
-  },
-  {
-    dataField: 'county_city',
-    text: 'County(City)',
-    sort: true,
-    headerFormatter: headerStyle
-  },
-  {
-    dataField: 'gender',
-    text: 'Gender',
-    sort: true,
-    headerFormatter: headerStyle
-  },
-  {
-    dataField: 'age_group',
-    text: 'Age Group',
-    sort: true,
-    headerFormatter: headerStyle
-  },
-  {
-    dataField: 'imported',
-    text: 'Imported Or Not',
-    sort: true,
-    headerFormatter: headerStyle
+    headerFormatter: headerFormat,
+    headerStyle: headerStyleObject({ width: "22%" }) 
+
   },
   {
     dataField: 'confirmed_case_count',
     text: 'Count',
     sort: true,
-    headerFormatter: headerStyle
+    headerFormatter: headerFormat,
+    headerStyle: headerStyleObject({ width: "12%" }) 
   },
+  {
+    dataField: 'county_city',
+    text: 'County(City)',
+    sort: true,
+    headerFormatter: headerFormat,
+    headerStyle: headerStyleObject({ width: "22%" }) 
+  },
+  {
+    dataField: 'gender',
+    text: 'Gender',
+    sort: true,
+    headerFormatter: headerFormat
+  },
+  {
+    dataField: 'age_group',
+    text: 'Age Group',
+    sort: true,
+    headerFormatter: headerFormat
+  },
+  {
+    dataField: 'imported',
+    text: 'Imported',
+    sort: true,
+    headerFormatter: headerFormat,
+   
+  },
+
 
 ]
 
