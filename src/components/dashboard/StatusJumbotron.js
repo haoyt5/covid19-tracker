@@ -10,13 +10,13 @@ const Statusumbotron = () => {
       <hr />
       <strong>SUMMARY</strong>
       <p>
-        This dataset represent the COVID-19 positive confirmed cases in Taiwan by the date of confirmation. The raw data was retrieved from <a target="_blank" rel='noopener noreferrer'
-          href={"//data.cdc.gov.tw/en/dataset/agsdctable-day-19cov"}>Taiwan CDC Open Data Portal</a> and was translated from Chinese to English by <a target="_blank" rel='noopener noreferrer'
-            href={"//github.com/haoyt5"}><FontAwesomeIcon icon={faGithub} /> haoyt5</a>
+        This dataset represents the COVID-19 positive confirmed cases area, age and gender in Taiwan by the date of confirmation. The raw data was retrieved from <a target="_blank" rel='noopener noreferrer'
+          href={"//data.cdc.gov.tw/en/dataset/agsdctable-day-19cov"}>Taiwan CDC Open Data Portal</a> and was translated from Chinese to English <a target="_blank" rel='noopener noreferrer'
+            href={"//github.com/haoyt5"}><FontAwesomeIcon icon={faGithub} /> haoyt5</a>.
       </p>
       <strong>UPDATE PROCESS</strong>
       <p>
-        The dataset is real-time fetching from the Taiwan CDC Open Data Portal. According to the description, the source dataset updated daily.
+        The dataset below is real-time fetching from the Taiwan CDC Open Data Portal. According to the description, the source dataset updated daily.
       </p>
     </Jumbotron>
   )
