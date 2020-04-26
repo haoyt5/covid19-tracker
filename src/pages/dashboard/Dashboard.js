@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Row, Col, Card, CardBody, Container } from "reactstrap";
 import StatusJumbotron from "../../components/dashboard/StatusJumbotron";
-import Filters from "../../components/dashboard/Filters";
+
 import CaseTable from "../../components/dashboard/CaseTable";
 import { getCaseListData } from '../../redux/actions/caseDataActions';
+import Filters from "../../components/dashboard/Filters";
 import filterColumns from "../../components/dashboard/data/filterColumns";
+
 export class Dashboard extends Component {
   componentDidMount() {
     this.props.getCaseListData();
@@ -33,9 +35,9 @@ export class Dashboard extends Component {
                   </Col>
                 </Row>
                 <Row >
-                  <Col lg="5">
-                  </Col>
-                  <Col lg="7">
+                  {/* <Col lg="5">
+                  </Col> */}
+                  <Col lg="12">
                     <Card >
                       <CardBody >
                         <CaseTable isLoad={isLoad} data={caseData}/>

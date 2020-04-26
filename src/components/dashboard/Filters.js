@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component,useState } from 'react'
 import { Row, Col } from "reactstrap";
-import MultiSelect from "@khanacademy/react-multi-select";
+import MultiSelect from "react-multi-select-component";
 import _ from "lodash";
+// import MultiSelect from "@khanacademy/react-multi-select";
 
 const convertArrayToOptionsObject = (originList) => {
   let result = [];
@@ -19,32 +20,33 @@ const trimOptions = (listData, dataField) => {
   }
   return dropdown;
 }
-class MultiFilterDropdown extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: []
-    };
-  }
-  render() {
-    const { dropdown } = this.props;
-    const { selected } = this.state;
+
+const  MultiFilterDropdown = (props) => {
+
+    const [selected, setSelected] = useState([]);
+    const { dropdown } = props;
     return (
       <MultiSelect
-        overrideStrings={{ selectSomeItems: "select" }}
+      overrideStrings={
+        {
+          "selectSomeItems": "select",
+          "allItemsAreSelected": "All selected.",
+          "selectAll": "Select All",
+          "search": "search"
+        }
+      }
         disabled={!dropdown}
         disableSearch={!dropdown}
         options={dropdown ? dropdown.alloptions : []}
-        selected={selected}
-        onSelectedChanged={selected => this.setState({ selected })}
+        value={selected}
+        onChange={setSelected}
+        className="dropdown-multiselect"
       />
     )
-  }
 }
 
-
 const MultiSelectFilter = (props) => {
-  const { text, dataField, dropdown } = props;
+  const { text, dataField,  dropdown } = props;
   return (
     <>
       <label htmlFor={dataField}>
@@ -79,3 +81,25 @@ export class Filters extends Component {
 
 export default Filters
 
+// class MultiFilterDropdown extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       selected: []
+//     };
+//   }
+//   render() {
+//     const { dropdown } = this.props;
+//     const { selected } = this.state;
+//     return (
+//       <MultiSelect
+//         overrideStrings={{ selectSomeItems: "select" }}
+//         disabled={!dropdown}
+//         disableSearch={!dropdown}
+//         options={dropdown ? dropdown.alloptions : []}
+//         selected={selected}
+//         onSelectedChanged={selected => this.setState({ selected })}
+//       />
+//     )
+//   }
+// }
