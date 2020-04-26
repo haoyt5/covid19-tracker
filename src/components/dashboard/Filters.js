@@ -7,11 +7,10 @@ export class Filters extends Component {
       <Row>
         <Col lg="5" >
           <Row>
-            <Col>
-              <label htmlFor="">Confirmed Month</label>
+            <Col><label htmlFor=""><strong style={{fontSize:"11px", minWidth:"5ch"}} className="text-truncate d-block">Confirmed Month</strong></label>
             </Col>
-            <Col><label htmlFor="">Age Group</label></Col>
-            <Col><label htmlFor="">Imported Case</label></Col>
+            <Col><label htmlFor=""><strong style={{fontSize:"11px", minWidth:"5ch"}} className="text-truncate d-block">Age Group</strong></label></Col>
+            <Col><label htmlFor=""><strong style={{fontSize:"11px", minWidth:"5ch"}} className="text-truncate d-block">Imported(Y/N)</strong></label></Col>
           </Row>
         </Col>
       </Row>

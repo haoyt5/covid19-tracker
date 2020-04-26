@@ -8,6 +8,12 @@ const attatchID = (object) => {
   }) 
  return object;
 }
+export const convertTimeStamp = (object) => {
+  object.forEach((item, i) => {
+    item.data_as_of =  Date.parse(item["data_as_of"].replace(/\//g,"-"));
+  }) 
+ return object;
+}
 
 const convertToEnglish = (string) =>{
   let result = [{}];

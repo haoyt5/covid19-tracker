@@ -36,8 +36,8 @@ export class Dashboard extends Component {
                   <Col lg="5">
                   </Col>
                   <Col lg="7">
-                    <Card>
-                      <CardBody>
+                    <Card >
+                      <CardBody >
                         <CaseTable isLoad={isLoad} data={caseData}/>
                       </CardBody>
                     </Card>
