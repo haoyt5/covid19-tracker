@@ -17,7 +17,7 @@ import { DateDatacFormatter } from "../../utility/dataConverter";
 const customTotalFormatter = (from, to, size) => {
   return (
     <strong style={{ fontSize: "12px" }}>
-      Showing {from} to {to} of {size} {size > 1 ? "Rows" : "Row"}
+      Showing {size > 1 ? "Rows" : "Row"} {from} - {to} out of {size} 
     </strong>
   );
 };
