@@ -100,7 +100,7 @@ const CaseTable = (props) => {
                 <Col>
                   <BootstrapTable {...props.baseProps}
                     bootstrap4 bordered={false}
-                    noDataIndication={() => !isLoad ? <div className="w-100 text-center">no data</div> : <div className="w-100 text-center"> <span className="spinner-border spinner-border-sm text-primary" role="status" aria-hidden="true"></span> Loading...</div>}
+                    noDataIndication={() => isLoad ? <div className="w-100 text-center">no data</div> : <div className="w-100 text-center"><span className="spinner-border spinner-border-sm text-primary" role="status" aria-hidden="true"></span> Loading...</div>}
                     pagination={paginationFactory({
                       sizePerPage: 10,
                       sizePerPageList: [10],
