@@ -8,6 +8,7 @@ const attatchID = (object) => {
   }) 
  return object;
 }
+
 export const convertTimeStamp = (object) => {
   object.forEach((item, i) => {
     item.data_as_of =  Date.parse(item["data_as_of"].replace(/\//g,"-"));
@@ -54,6 +55,7 @@ const convertToEnglish = (string) =>{
   result = newstring     
   return result;
 }
+
 export const getCaseListData = () => {
   return (dispatch) => {
 
@@ -67,13 +69,38 @@ export const getCaseListData = () => {
       .then(r => r.text())
       .then(data => {
         const apiResult = JSON.parse(convertToEnglish(data));
-        console.log("apiResult",apiResult);
+        // console.log("apiResult",apiResult);
         dispatch({
-          type: constant.CASE_LIST_SUCCESS,
+          type: constant.GET_CASE_LIST_SUCCESS,
           payload: attatchID(apiResult)
         });
       })
       .catch()
 
+  }
+}
+
+export const getCaseMetaData = () => {
+  return (dispatch) => {
+
+    fetch("https://data.cdc.gov.tw/api/3/action/package_show?id=agsdctable-day-19cov")
+    .then(response => response.json()).then(data=>{
+      let resultData = {
+        metadata_created: null,
+        metadata_modified: null
+      };
+      const { metadata_created,  metadata_modified } = data.result;
+      resultData  = {
+        metadata_created,
+        metadata_modified
+      }
+      return resultData;
+    }).then(result=>{
+      return dispatch({
+        type:constant.GET_CASE_META_DATA_SUCCESS,
+        payload: result
+      })
+    })
+    
   }
 }
