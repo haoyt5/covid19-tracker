@@ -12,6 +12,8 @@ import "../../components/dashboard/Dashboard.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
+import { DateDatacFormatter } from "../../utility/dataConverter";
+
 const customTotalFormatter = (from, to, size) => {
   return (
     <strong style={{ fontSize: "12px" }}>
@@ -65,7 +67,8 @@ const CustomSearchBar = (props) => {
 
 const CaseTable = (props) => {
 
-  const { isLoad, data } = props;
+  const { isLoad, data, metaData } = props;
+
   return (
     <div style={{ minHeight: "25vw" }}>
       <ToolkitProvider
@@ -81,12 +84,23 @@ const CaseTable = (props) => {
                   <CustomSearchBar {...props.searchProps} />
                 </Col>
               </Row>
+              <Row>
+                <Col>
+                  <div className="d-flex justify-content-end">
+                    <small>Data Last Updated: {metaData.isLoad ? <DateDatacFormatter string={metaData.result.metadata_modified} /> :
+                      <div className="spinner-grow spinner-grow-sm text-primary" role="status">
+                        <span className="sr-only text-primary"></span>
+                      </div>}
+                    </small>
+                  </div>
+                </Col>
+              </Row>
               <hr />
               <Row>
                 <Col>
                   <BootstrapTable {...props.baseProps}
                     bootstrap4 bordered={false}
-                    noDataIndication={() => <div className="w-100 text-center">no data</div>}
+                    noDataIndication={() => !isLoad ? <div className="w-100 text-center">no data</div> : <div className="w-100 text-center"> <span className="spinner-border spinner-border-sm text-primary" role="status" aria-hidden="true"></span> Loading...</div>}
                     pagination={paginationFactory({
                       sizePerPage: 10,
                       sizePerPageList: [10],

@@ -22,6 +22,7 @@ const rowFormat = (cell) => {
     style={{minWidth: "5ch" }}><small>{cell}</small></span>
   );
 }
+
 export const timeStampRowFormat = (cell) => {
   if (!cell) {
     return "";
